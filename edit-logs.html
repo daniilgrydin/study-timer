@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Logs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Edit Daily Logs</h1>
+
+  <div class="nav-buttons">
+    <button onclick="location.href='calendar.html'">← Back to Calendar</button>
+    <button onclick="location.href='index.html'">Timer</button>
+  </div>
+
+  <table id="edit-table">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Duration (HH:MM:SS)</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <h2>Add New Entry</h2>
+  <div class="input-row">
+    <input type="date" id="new-date">
+    <input type="text" id="new-duration" placeholder="HH:MM:SS">
+    <button id="add-btn">Add</button>
+  </div>
+
+  <script src="edit-logs.js"></script>
+</body>
+</html>

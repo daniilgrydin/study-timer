@@ -1,0 +1,132 @@
+/* ============================================================
+   📅 calendar.css – Styles for Calendar View Page
+============================================================ */
+
+/* Import main styles */
+@import url('main.css');
+
+/* ------------------------------------------------------------
+   📐 Layout
+------------------------------------------------------------ */
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  margin: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+#calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1rem;
+  max-width: 800px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.day-cell {
+  background-color: var(--color-surface);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.day-cell:hover {
+  background-color: var(--color-muted);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.day-cell.blank {
+  background-color: transparent;
+}
+
+.day-cell.header {
+  font-weight: bold;
+  color: var(--color-dark);
+  background-color: var(--color-secondary);
+  padding: 0.5rem 0;
+}
+
+.day-number {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+
+.hours {
+  font-size: 1rem;
+  color: var(--color-dark);
+  margin-top: 0.5rem;
+}
+
+/* Highlight today and current week */
+.day-cell.today {
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+}
+
+.day-cell.current-week {
+  background-color: var(--color-muted);
+}
+
+.day-cell.today .day-number {
+  font-weight: bold;
+}
+
+/* ------------------------------------------------------------
+   🔧 Button Styles (Back to Timer / Edit Logs)
+------------------------------------------------------------ */
+button {
+  background-color: var(--color-accent);
+  color: var(--color-surface);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 1rem;
+}
+
+button:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------------------------
+   📱 Responsive Styles
+------------------------------------------------------------ */
+@media (max-width: 768px) {
+  #calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+  }
+
+  .day-cell {
+    padding: 0.8rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    width: 100%;
+  }
+}

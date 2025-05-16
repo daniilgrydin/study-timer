@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Timer App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+         <!-- Video Background -->
+<div id="video-background">
+    <iframe
+      id="yt-bg"
+      src="https://www.youtube-nocookie.com/embed/15bZlN0LrFg?autoplay=1"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <div class="container">
+    <div class="left-panel">
+      <button class="button" id="toggle-log-btn">Hide Log</button class="button">
+      <button class="button" id="settings-btn">Settings ⚙️</button class="button">
+      <div id="mode">Ready to start</div>
+      <div id="progress-container">
+        <svg width="220" height="220">
+          <circle id="progress-bg" cx="110" cy="110" r="90" />
+          <circle id="progress-fg" cx="110" cy="110" r="90" />
+        </svg>
+        <div id="timer">00:00</div>
+      </div>
+      <div id="controls">
+        <button class="button" id="start-btn">Start</button class="button">
+        <button class="button" id="pause-btn">Pause</button class="button">
+        <button class="button" id="end-btn">End</button class="button">
+        <a href="calendar.html" id="calendar-link">Calendar View</a>
+      </div>
+      <div id="debug-container">
+        <input type="checkbox" id="debug-toggle">
+        <label for="debug-toggle">Debug Mode</label>
+        <button id="zen-mode-btn">Enter Zen Mode</button>
+
+      </div>
+    </div>
+    <div class="right-panel">
+      <h3>Session Log</h3>
+      <div id="total-time">Total Time Worked: 00:00:00</div>
+      <table id="log-table">
+        <thead>
+          <tr><th>#</th><th>Start</th><th>End</th><th>Dur</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="log-controls">
+        <button class="button" id="add-manual-btn">Add Work Hours</button class="button">
+        <button class="button" id="wrap-day-btn">Wrap the Day</button class="button">
+        <button class="button" id="clear-log-btn">Clear All</button class="button">
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="settings-modal" style="display: none;">
+    <div id="settings-content">
+      <h2>Settings</h2>
+      <label>Work Duration (min): <input id="set-work" type="number" min="1"></label><br>
+      <label>Chill Duration (min): <input id="set-chill" type="number" min="1"></label><br>
+      <label>Exercise Breaks per Session: <input id="set-breaks" type="number" min="1"></label><br>
+      <label>Weekly Goal (hrs): <input id="set-weekly" type="number" min="1"></label><br>
+      <label for="set-video-url">Background Video URL:</label>
+<input type="text" id="set-video-url" placeholder="https://www.youtube.com/watch?v=..."><br>
+<label for="set-video-volume">Video Volume:</label>
+<input type="range" id="set-video-volume" min="0" max="100" value="100"><br>
+
+      <button class="button" id="save-settings-btn">Save</button class="button">
+      <button class="button" id="close-settings-btn">Close</button class="button">
+
+    </div>
+  </div>
+
+  <!-- Exercise Modal -->
+<div id="exercise-modal" style="visibility: hidden;" class="modal">
+    <div class="modal-content">
+      <p id="exercise-prompt">Do 20 sit-ups!</p>
+      <button class="button" id="done-btn">Done</button class="button">
+    </div>
+  </div>
+  
+  
+
+  <audio id="bell-sound" src="bell.mp3"></audio>
+  <script src="script.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
